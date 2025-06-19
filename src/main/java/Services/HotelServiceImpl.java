@@ -1,6 +1,6 @@
 package Services;
 
-import Entity.Hotel;
+import entity.Hotel;
 import repository.HotelRepository;
 
 import java.util.List;
