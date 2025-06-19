@@ -1,6 +1,6 @@
-package services;
+package com.example.Hotel.CRUD.with.Thymeleaf.services;
 
-import entity.Hotel;
+import com.example.Hotel.CRUD.with.Thymeleaf.entity.Hotel;
 
 import java.util.List;
 

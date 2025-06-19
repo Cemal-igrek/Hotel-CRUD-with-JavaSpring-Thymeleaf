@@ -1,10 +1,12 @@
-package services;
+package com.example.Hotel.CRUD.with.Thymeleaf.services;
 
-import entity.Hotel;
-import repository.HotelRepository;
+import com.example.Hotel.CRUD.with.Thymeleaf.entity.Hotel;
+import com.example.Hotel.CRUD.with.Thymeleaf.repository.HotelRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class HotelServiceImpl implements HotelService {
 
     private HotelRepository hotelRepository;

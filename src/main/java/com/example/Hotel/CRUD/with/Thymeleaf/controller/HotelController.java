@@ -1,19 +1,22 @@
-package controller;
+package com.example.Hotel.CRUD.with.Thymeleaf.controller;
 
-import ch.qos.logback.core.model.Model;
-import entity.Hotel;
+import com.example.Hotel.CRUD.with.Thymeleaf.services.HotelService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
+import com.example.Hotel.CRUD.with.Thymeleaf.entity.Hotel;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import services.HotelService;
+
 
 @Controller
 @RequestMapping("/hotels")
 public class HotelController {
     private HotelService hotelService;
 
+    @Autowired
     public HotelController(HotelService hotelService) {
         this.hotelService = hotelService;
     }
@@ -26,8 +29,9 @@ public class HotelController {
     @GetMapping("/add")
     public String showAddForm(Model model) {
         model.addAttribute("hotel", new Hotel());
-        return "hotel_form";
+        return "hotel_form"; // dosya adı, uzantı YOK!
     }
+
 
     @PostMapping("/add")
     public String saveHotel(@ModelAttribute("hotel") Hotel hotel) {
