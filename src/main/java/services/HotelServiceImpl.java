@@ -1,4 +1,4 @@
-package Services;
+package services;
 
 import entity.Hotel;
 import repository.HotelRepository;
