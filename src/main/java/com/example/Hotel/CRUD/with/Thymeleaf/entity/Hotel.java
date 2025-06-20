@@ -25,6 +25,9 @@ public class Hotel {
 
     @Column(name = "stars")
     private int stars;
+
+    @Column(name = "daily_price")
+    private double dailyPrice;
     // Getter ve Setter'lar
     public Long getId() {
         return id;
@@ -56,6 +59,13 @@ public class Hotel {
 
     public void setStars(int stars) {
         this.stars = stars;
+    }
+    public double getDailyPrice() {
+        return dailyPrice;
+    }
+
+    public void setDailyPrice(double dailyPrice) {
+        this.dailyPrice = dailyPrice;
     }
 
 }
