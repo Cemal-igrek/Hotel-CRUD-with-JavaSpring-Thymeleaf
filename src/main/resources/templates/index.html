@@ -1,0 +1,25 @@
+  <!DOCTYPE html>
+  <html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+    <meta charset="UTF-8">
+    <title>Homepage</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" th:href="@{/css/index.css}">
+  </head>
+  <body>
+  <!-- Sağ üst köşe butonları -->
+  <div class="top-buttons">
+    <a href="/hotels" class="btn btn-outline-light">Hotelleri Görüntüle</a>
+    <a href="/hotels/add" class="btn btn-light">Hotel Ekle</a>
+  </div>
+
+  <!-- Orta içerik -->
+  <div class="container d-flex justify-content-center">
+    <div class="content text-center col-md-10 col-lg-8">
+      <h1 class="display-5 mb-4"><strong>"Every journey is a step closer to finding who you truly are."</strong></h1>
+      <p class="lead fs-4 mb-5">We believe in making your travel plans simple and enjoyable.<br>Let's start a new journey!</p>
+    </div>
+  </div>
+
+  </body>
+  </html>
