@@ -29,7 +29,7 @@ public class HotelController {
     @GetMapping("/add")
     public String showAddForm(Model model) {
         model.addAttribute("hotel", new Hotel());
-        return "hotel_form"; // dosya adı, uzantı YOK!
+        return "hotel_form";
     }
 
 
@@ -39,3 +39,4 @@ public class HotelController {
         return "redirect:/hotels";
     }
 }
+

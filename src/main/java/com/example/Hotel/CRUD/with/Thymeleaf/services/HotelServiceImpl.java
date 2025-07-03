@@ -23,21 +23,25 @@ public class HotelServiceImpl implements HotelService {
 
     @Override
     public Hotel getHotelById(Long id) {
-        return null;
+        // findById, bir Optional döner. Bulamazsa diye bir exception fırlatmak iyidir.
+        return hotelRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Hotel not found for id :: " + id));
     }
 
     @Override
-    public void saveHotel(Hotel hotel) {
-    this.hotelRepository.save(hotel);
+    public Hotel saveHotel(Hotel hotel) {
+        return hotelRepository.save(hotel);
     }
 
     @Override
     public void updateHotel(Hotel hotel) {
-
+        hotelRepository.save(hotel); // save metodu hem ekleme hem güncelleme yapar
     }
 
     @Override
     public void deleteHotel(Long id) {
-
+        hotelRepository.deleteById(id);
     }
+
+
 }
