@@ -7,6 +7,8 @@
   <link rel="stylesheet" th:href="@{/css/hotel_list.css}">
 </head>
 <body>
+<th:block th:replace="fragments :: navbar"></th:block>
+
 <div class="container mt-5">
   <h2 class="mb-4">Hoteller Listesi</h2>
   <table class="table table-bordered table-hover table-striped">
@@ -21,11 +23,10 @@
     </thead>
     <tbody>
     <tr th:each="hotel, iterStat : ${hotels}">
-      <td th:text="${iterStat.count}">1</td>
-      <td th:text="${hotel.name}">Hotel Adı</td>
-      <td th:text="${hotel.description}">Açıklama</td>
-      <td th:text="${hotel.stars}">3</td>
       <td th:text="${hotel.dailyPrice}">500</td>
+      <td>
+        <a th:href="@{/reservations/new/{id}(id=${hotel.id})}" class="btn btn-primary btn-sm">Rezervasyon Yap</a>
+      </td>
     </tr>
     </tbody>
   </table>
