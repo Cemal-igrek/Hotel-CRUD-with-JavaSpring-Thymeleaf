@@ -13,56 +13,21 @@
       align-items: center;
       justify-content: center;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      margin: 0; /* Scrollu kaldır */
-      /* overflow: hidden; */ /* İstersen kaldırabilirsin, scroll olursa */
-    }
-    .card-container {
-      perspective: 1000px;
-      width: 400px;
-      height: 480px; /* Kart yüksekliği sabitlendi */
+      margin: 0;
     }
     .card {
-      position: relative; /* Mutlaka ekle */
-      width: 100%;
-      height: 100%;
-      border-radius: 15px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
-      background: rgba(255, 255, 255, 0.95);
-      transition: transform 0.6s ease-in-out;
-      transform-style: preserve-3d;
-    }
-    .card.active {
-      transform: rotateY(180deg);
-    }
-    .card-front, .card-back {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      top: 0;
-      left: 0;
+      width: 400px;
       padding: 30px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      backface-visibility: hidden;
-      box-sizing: border-box;
-    }
-    .card-back {
-      transform: rotateY(180deg);
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      background: rgba(255, 255, 255, 0.95);
     }
     .card-header {
-      background-color: #2193b0;
-      color: white;
-      padding: 20px 0;
-      border-top-left-radius: 15px;
-      border-top-right-radius: 15px;
-      text-align: center;
       font-size: 1.8rem;
       font-weight: bold;
       margin-bottom: 20px;
-      width: 100%;
+      color: #2193b0;
+      text-align: center;
     }
     .form-control {
       border-radius: 8px;
@@ -82,8 +47,8 @@
       padding: 12px 25px;
       border-radius: 8px;
       font-weight: bold;
-      transition: all 0.3s ease;
       width: 100%;
+      transition: all 0.3s ease;
     }
     .btn-primary:hover {
       background-color: #1a7e93;
@@ -94,109 +59,25 @@
       color: #2193b0;
       text-decoration: none;
       font-weight: 600;
-      transition: color 0.3s ease;
       cursor: pointer;
     }
     .text-center a:hover {
       color: #1a7e93;
       text-decoration: underline;
     }
-    .social-login button {
-      background: none;
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 10px 15px;
-      margin: 5px;
-      transition: all 0.3s ease;
-      font-size: 1.1rem;
-      color: #555;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-    }
-    .social-login button:hover {
-      background-color: #f0f0f0;
-      transform: translateY(-2px);
-    }
-    .social-login i {
-      margin-right: 8px;
-      font-size: 1.2rem;
-    }
-    .flip-button {
-      background: none;
-      border: none;
-      color: #2193b0;
-      font-weight: 600;
-      cursor: pointer;
-      text-decoration: underline;
-      margin-top: 15px;
-      transition: color 0.3s ease;
-      padding: 0;
-    }
-    .flip-button:hover {
-      color: #1a7e93;
-    }
   </style>
 </head>
 <body>
-<div class="card-container">
-  <div class="card" id="loginCard">
-    <!-- Login form -->
-    <div class="card-front">
-      <div class="card-header">Giriş Yap</div>
-      <div class="card-body w-100">
-        <form th:action="@{/login}" method="post">
-          <div class="mb-3">
-            <label for="username" class="form-label visually-hidden">Kullanıcı Adı</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="Kullanıcı Adı" required />
-          </div>
-          <div class="mb-3">
-            <label for="password" class="form-label visually-hidden">Şifre</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Şifre" required />
-          </div>
-          <div class="d-grid gap-2 mb-3">
-            <button type="submit" class="btn btn-primary">Giriş Yap</button>
-          </div>
-          <div class="text-center mb-3">
-            <a href="#" class="forgot-password">Şifremi Unuttum?</a>
-          </div>
-          <div class="text-center mt-3">
-            Hesabın yok mu? <button type="button" class="flip-button" onclick="flipCard()">Kayıt Ol</button>
-          </div>
-        </form>
-      </div>
-    </div>
-
-    <!-- Register form -->
-    <div class="card-back">
-      <div class="card-header">Kayıt Ol</div>
-      <div class="card-body w-100">
-        <form th:action="@{/register}" method="post">
-          <div class="mb-3">
-            <label for="regUsername" class="form-label visually-hidden">Kullanıcı Adı</label>
-            <input type="text" class="form-control" id="regUsername" name="username" placeholder="Kullanıcı Adı" required />
-          </div>
-          <div class="mb-3">
-            <label for="regEmail" class="form-label visually-hidden">E-posta</label>
-            <input type="email" class="form-control" id="regEmail" name="email" placeholder="E-posta" required />
-          </div>
-          <div class="mb-3">
-            <label for="regPassword" class="form-label visually-hidden">Şifre</label>
-            <input type="password" class="form-control" id="regPassword" name="password" placeholder="Şifre" required />
-          </div>
-          <div class="d-grid gap-2 mb-3">
-            <button type="submit" class="btn btn-primary">Kayıt Ol</button>
-          </div>
-          <div class="text-center mt-3">
-            Zaten bir hesabın var mı? <button type="button" class="flip-button" onclick="flipCard()">Giriş Yap</button>
-          </div>
-        </form>
-      </div>
-    </div>
+<div class="card">
+  <div class="card-header">Giriş Yap</div>
+  <form th:action="@{/login}" method="post">
+    <input type="text" class="form-control" id="username" name="username" placeholder="Kullanıcı Adı" required />
+    <input type="password" class="form-control" id="password" name="password" placeholder="Şifre" required />
+    <button type="submit" class="btn btn-primary">Giriş Yap</button>
+  </form>
+  <div class="text-center mt-3">
+    Hesabın yok mu? <a th:href="@{/register}">Kayıt Ol</a>
   </div>
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
